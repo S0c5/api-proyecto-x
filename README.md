@@ -8,3 +8,9 @@ Welcome to our amazing API!  :)
 
 
 
+# Setup project 
+
+## RUN ```npm start```
+
+
+
