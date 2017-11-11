@@ -1,0 +1,1 @@
+sudo docker run -p 27018:27018 --name mongodb_server  mongo 
