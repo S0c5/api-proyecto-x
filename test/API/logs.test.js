@@ -26,7 +26,7 @@ describe('Logs', () => {
         i send the log to POST /logs/temperature`, 
         () => {
             return request
-            .post('/logs/temperature')
+            .post('/logs/temperatures')
             .send({
                 temperature: 30
             })
@@ -41,7 +41,7 @@ describe('Logs', () => {
         return a list with the logs for temperature`, 
         () =>{
             return request
-            .get('/logs/temperature')
+            .get('/logs/temperatures')
             .expect(200)
             .then(res => res.body)
             .then(body => {
@@ -59,7 +59,7 @@ describe('Logs', () => {
                 .then(res => res.body)
                 .then(body => {
                     body.length.should.above(0);
-                    body.should.have.properties(['action'])
+                    body[0].should.have.properties(['action'])
                 });
     })    
 })
