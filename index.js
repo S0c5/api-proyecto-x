@@ -13,11 +13,11 @@ app.use(bodyParser.json());
 const temperatureController = require('./controllers/temperature');
 
 app.post(
-    '/logs/temperatures', 
+    '/logs/temperatures',
     temperatureController.create
 );
 app.get(
-    '/logs/temperatures', 
+    '/logs/temperatures',
     temperatureController.list
 );
 
@@ -34,6 +34,12 @@ app.get(
     activityController.list
 )
 
+const hardwareController  = require('./controllers/hardware');
+
+app.put('/hardware/led', hardwareController.ledController);
+app.get('/hardware/sensor', hardwareController.sensorController);
+
+
 if(require.main == module){
     app.listen(process.env.PORT || 3000, (err) => {
         console.log('[+] app listening at port 3000');
@@ -41,6 +47,3 @@ if(require.main == module){
 }else {
     module.exports = app;
 }
-
-
-

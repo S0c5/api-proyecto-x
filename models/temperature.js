@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const Schema   = mongoose.Schema;
-
+const {led, sensor}      = require('./hardware');
 
 const temperatureSchema = new Schema({
     temperature: {
@@ -14,9 +14,11 @@ const temperatureSchema = new Schema({
         }
     }
 });
-
+temperatureSchema.statics.hardware = {};
+temperatureSchema.statics.hardware.led = led;
+temperatureSchema.statics.hardware.sensor = sensor;
 
 module.exports = mongoose.model(
-    'temperature', 
+    'temperature',
     temperatureSchema
 );
