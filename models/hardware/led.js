@@ -10,11 +10,9 @@ class Led {
     });
   }
   on() {
-    console.log('called on');
     this.led.on();
   }
   off() {
-    console.log('off ? ');
     this.led.off();
   }
 }
